@@ -1,3 +1,3 @@
 #include "billitem.h"
 
-BillItem::BillItem() {}
+BillItem::BillItem(QString &name, int pricePerUnit, int quanity) {}
