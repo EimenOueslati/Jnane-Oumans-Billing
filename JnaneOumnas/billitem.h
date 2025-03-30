@@ -6,15 +6,17 @@
 class BillItem
 {
 public:
-    BillItem();
-    int totalPrice();
-    QString name();
-    int pricePerUnit();
-    int quantity();
+    BillItem(QString id, QString name, double pricePerUnit, double quanity);
+    double totalPrice() const;
+    const QString &id() const;
+    const QString &name() const;
+    double pricePerUnit() const;
+    double quantity() const;
 private:
+    QString m_id;
     QString m_name;
-    int m_pricePerUnit;
-    int m_quantity;
+    double m_pricePerUnit;
+    double m_quantity;
 };
 
 #endif // BILLITEM_H
