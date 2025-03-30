@@ -1,5 +1,0 @@
-module JnaneOumnas
-typeinfo appJnaneOumnas.qmltypes
-prefer :/qt/qml/JnaneOumnas/
-Main 1.0 Main.qml
-
