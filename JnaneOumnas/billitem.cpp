@@ -1,6 +1,7 @@
 #include "billitem.h"
 
-BillItem::BillItem(QString &name, double pricePerUnit, double quanity) :
+BillItem::BillItem(QString id, QString name, double pricePerUnit, double quanity) :
+    m_id(id),
     m_name(name),
     m_pricePerUnit(pricePerUnit),
     m_quantity(quanity)
