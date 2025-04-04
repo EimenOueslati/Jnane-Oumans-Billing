@@ -25,6 +25,7 @@ ApplicationWindow {
         }
 
         ToolBar {
+            id: toolbar
             anchors.top: parent.top
             anchors.right: parent.right
             //width: parent.width
@@ -35,13 +36,29 @@ ApplicationWindow {
 
             Row{
                 ToolButton {
+                    id: mainButton
                     text: "Main"
                     font.pixelSize: 15
+                    font.underline: true
+                    onClicked: {
+                        helpButton.font.underline = false
+                        font.underline = true
+                        helpPageWrapper.visible = false
+                        mainPageWrapper.visible = true
+                    }
                 }
 
                 ToolButton {
+                    id: helpButton
                     text: "Help"
                     font.pixelSize: 15
+                    font.underline: false
+                    onClicked: {
+                        mainButton.font.underline = false
+                        font.underline = true
+                        mainPageWrapper.visible = false
+                        helpPageWrapper.visible = true
+                    }
                 }
 
                 ToolButton {
@@ -51,40 +68,58 @@ ApplicationWindow {
             }
         }
 
-        Column {
-            y: parent.y + parent.width/3
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.rightMargin: 40
+        Item {
+            id: mainPageWrapper
+            visible: true
+            anchors.fill: parent
+            anchors.top: toolbar.bottom
             anchors.leftMargin: 20
-            spacing: 20
-            Label {
-                id: welcomeLabel
-                font.family: "Lato"
-                font.italic: true
-                font.pixelSize: 18
-                color: "#2E4053"
-                text: "Welcome to"
-            }
+            anchors.rightMargin: 40
+            Column {
+                y: parent.y + parent.height/3
+                spacing: 20
+                Label {
+                    id: welcomeLabel
+                    font.family: "Lato"
+                    font.italic: true
+                    font.pixelSize: 18
+                    color: "#2E4053"
+                    text: "Bienvenue à"
+                }
 
+                Label {
+                    id: titleLabel
+                    font.family: "Playfair Display"
+                    font.italic: true
+                    font.bold: true
+                    font.pixelSize: 45
+                    color: "#2E4053"
+                    text: "Jnane Oumnas"
+                }
+
+                Label {
+                    id: descriptionLabel
+                    font.family: "Lato"
+                    font.pixelSize: 20
+                    wrapMode: Text.Wrap
+                    width: parent.parent.width
+                    color: "#2E4053"
+                    text: "Cette application permet de créer, modifier et imprimer des factures, des avoirs, ainsi que de gérer des produits et des clients depuis un seul et même endroit. Cliquez sur « Facture » ​​ou « Note de crédit » pour démarrer ou consultez le guide en cliquant sur « Aide » dans la barre d'outils ci-dessus."
+                }
+            }
+        }
+
+        Item {
+            id: helpPageWrapper
+            visible: false
             Label {
-                id: titleLabel
+                id: temp
                 font.family: "Playfair Display"
                 font.italic: true
                 font.bold: true
                 font.pixelSize: 45
                 color: "#2E4053"
-                text: "Jnane Oumnas"
-            }
-
-            Label {
-                id: descriptionLabel
-                font.family: "Lato"
-                font.pixelSize: 20
-                wrapMode: Text.Wrap
-                width: parent.width - 30
-                color: "#2E4053"
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                text: "help info"
             }
         }
     }
