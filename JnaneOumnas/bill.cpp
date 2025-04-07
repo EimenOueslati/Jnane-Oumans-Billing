@@ -12,12 +12,9 @@ void Bill::addItem(BillItem &&item)
     m_items.push_back(std::make_shared<BillItem>(std::move(item)));
 }
 
-void Bill::delteItem(QString &id)
+void Bill::delteItem(int index)
 {
-    for(int i = 0; i < m_items.size(); i++) {
-        if(m_items[i]->id() == id)
-            m_items.erase(m_items.begin() + i);
-    }
+    m_items.erase(m_items.begin() + index - 1);
 }
 
 std::shared_ptr<BillItem> Bill::getItem(int index) const
