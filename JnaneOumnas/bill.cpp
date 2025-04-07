@@ -20,7 +20,7 @@ void Bill::delteItem(QString &id)
     }
 }
 
-std::shared_ptr<BillItem> Bill::getItem(int index)
+std::shared_ptr<BillItem> Bill::getItem(int index) const
 {
     if(index >= m_items.size())
         return nullptr;

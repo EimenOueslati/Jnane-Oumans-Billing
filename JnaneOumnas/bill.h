@@ -11,7 +11,7 @@ public:
     Bill(QDate date, QString billId);
     void addItem(BillItem &&item);
     void delteItem(QString &id);
-    std::shared_ptr<BillItem> getItem(int index);
+    std::shared_ptr<BillItem> getItem(int index) const;
     const std::vector<std::shared_ptr<BillItem>> &items() const;
     const QDate &date() const;
     const QString &id() const;
