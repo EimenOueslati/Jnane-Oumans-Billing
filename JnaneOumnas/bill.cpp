@@ -20,13 +20,12 @@ void Bill::delteItem(QString &id)
     }
 }
 
-std::shared_ptr<BillItem> Bill::getItem(QString id)
+std::shared_ptr<BillItem> Bill::getItem(int index)
 {
-    for(int i = 0; i < m_items.size(); i++) {
-        if(m_items[i]->id() == id)
-            return m_items[i];
-    }
+    if(index >= m_items.size())
+        return nullptr;
 
+    return m_items.at(index);
 }
 
 const std::vector<std::shared_ptr<BillItem> > &Bill::items() const
