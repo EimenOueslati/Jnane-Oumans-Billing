@@ -6,14 +6,14 @@
 class BillItem
 {
 public:
-    BillItem(QString id, QString name, double pricePerUnit, double quanity);
+    BillItem(const QString &name, double pricePerUnit, double quanity);
     double totalPrice() const;
-    const QString &id() const;
     const QString &name() const;
     double pricePerUnit() const;
     double quantity() const;
+    void setPricePerUnit(double price);
+    void setQuantity(double quantity);
 private:
-    QString m_id;
     QString m_name;
     double m_pricePerUnit;
     double m_quantity;
