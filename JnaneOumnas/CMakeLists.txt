@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 project(JnaneOumnas VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 
@@ -10,6 +11,7 @@ qt_standard_project_setup(REQUIRES 6.8)
 
 qt_add_executable(appJnaneOumnas
     main.cpp
+    Images.qrc
 )
 
 qt_add_qml_module(appJnaneOumnas
@@ -18,6 +20,8 @@ qt_add_qml_module(appJnaneOumnas
     QML_FILES
         Main.qml
         SOURCES billitem.h billitem.cpp
+        SOURCES bill.h bill.cpp
+        RESOURCES Images.qrc
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
