@@ -12,7 +12,7 @@ Item {
 
         Rectangle {
             anchors.fill: parent
-            color: "#FFFDF0"
+            color: "#f5f4b5"
         }
 
         ToolBar {
@@ -21,7 +21,7 @@ Item {
             anchors.right: parent.right
             background: Rectangle {
                 anchors.fill: parent
-                color: "#FFFDF0"
+                color: "#f5f4b5"
             }
 
             Row{
@@ -440,7 +440,7 @@ Item {
                     color: "white"
                 }
 
-                onClicked: topLevelStack.push("FacturePage.qml")
+                onClicked: topLevelStack.push("BillControlPage.qml")
             }
 
             Button {
