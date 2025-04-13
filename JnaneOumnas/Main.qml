@@ -5,8 +5,8 @@ import QtQuick.Controls
 ApplicationWindow {
     id: applicationWindow
     visible: true
-    width: 1000
-    height: 900
+    width: 900
+    height: 800
     minimumWidth: width
     minimumHeight: height
     maximumWidth: width
